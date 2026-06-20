@@ -42,3 +42,15 @@ export const DEPARTMENT_COLORS = {
   Admin: '#a855f7',
   Management: '#4338ca',
 }
+
+export const WORK_MODE_COLORS = {
+  Office: '#6366f1',
+  Hybrid: '#0ea5e9',
+  Remote: '#a855f7',
+}
+
+export function employmentTypeBadgeClass(type) {
+  return type === 'FLC'
+    ? 'bg-violet-100 text-violet-700 ring-1 ring-inset ring-violet-600/20'
+    : 'bg-slate-100 text-slate-600 ring-1 ring-inset ring-slate-400/20'
+}

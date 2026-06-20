@@ -1,9 +1,12 @@
 import { useMemo, useState } from 'react'
 import employeesData from './data/employees.json'
+import operationalCostData from './data/operational-cost.json'
 import Header from './components/Header'
 import KpiCards from './components/KpiCards'
 import ChartsSection from './components/ChartsSection'
 import EmployeeTable from './components/EmployeeTable'
+import CostBreakdownPanel from './components/CostBreakdownPanel'
+import PayrollSimulationTool from './components/PayrollSimulationTool'
 import { filterEmployees } from './utils/metrics'
 
 export default function App() {
@@ -34,6 +37,12 @@ export default function App() {
         <KpiCards employees={filteredEmployees} showSalary={showSalary} />
         <ChartsSection employees={filteredEmployees} />
         <EmployeeTable employees={filteredEmployees} showSalary={showSalary} />
+        <CostBreakdownPanel
+          employees={filteredEmployees}
+          operationalCost={operationalCostData}
+          showSalary={showSalary}
+        />
+        <PayrollSimulationTool employees={filteredEmployees} showSalary={showSalary} />
 
         <footer className="text-center text-xs text-slate-400 py-4">
           Kapal Api Russia Branch — Performance Dashboard Demo · Dummy data for illustration purposes only

@@ -1,0 +1,24 @@
+{
+  "office": {
+    "current": {
+      "area_sqm": 75,
+      "monthly_rent_usd": 150000,
+      "avg_daily_attendance": 3.5,
+      "utilization_rate_pct": 5
+    },
+    "proposed": {
+      "area_sqm": 40,
+      "function": "Meeting, Administrasi, Operasional Inti",
+      "work_system": "Hybrid",
+      "capacity": 5,
+      "monthly_rent_usd": null
+    }
+  },
+  "hr_outsourcing": {
+    "internal_hr_position": {
+      "role": "HR Admin",
+      "monthly_cost_usd": 1450
+    },
+    "flc_estimated_monthly_cost_usd": null
+  }
+}

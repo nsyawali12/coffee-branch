@@ -14,20 +14,26 @@ Demo dashboard untuk monitoring performance karyawan vs target di branch distrib
 - KPI cards: avg performance score, revenue achievement, high-performer ratio, attendance rate, total payroll, cost per revenue.
 - Filter Department & Date Range (berdasarkan tanggal join) yang mempengaruhi seluruh KPI, chart, dan tabel.
 - Chart: Goal Achievement Rate (donut), Revenue Target vs Current per Sales Executive, Avg Performance Score by Department.
-- Tabel lengkap 16 karyawan, bisa di-sort per kolom (klik header) dan difilter by status.
-- Toggle **"Show Salary Data"** — kolom gaji dan KPI yang berbasis gaji (Total Monthly Payroll, Cost per Revenue) disembunyikan secara default dan baru muncul setelah toggle diklik manual.
+- Tabel lengkap 16 karyawan — sort per kolom (klik header), filter by status / employment type / work mode. Baris dengan tanda ⚠️ di nama = **reduction candidate** (performance score < 3.0, atau achievement < 80% — dihitung otomatis di frontend, bukan field statis di data).
+- **Cost Breakdown Panel**: ringkasan Total Monthly Operational Cost (rent + payroll) dengan breakdown persentase, plus 4 sub-panel — Office Rent (current vs proposed, input editable + potential saving real-time), Payroll by Department (chart), HR Outsourcing Internal vs FLC (input quote editable + saving real-time), Work Mode Distribution (chart).
+- **Payroll Simulation Tool**: tabel karyawan dengan checkbox (default semua tercentang), uncheck = disimulasikan sebagai pengurangan. Footer sticky menampilkan Total Payroll Saat Ini, Setelah Simulasi, Saving/Bulan, Saving/Tahun. Ada tombol filter cepat "Show Reduction Candidates Only". Keputusan reduksi tetap manual — karyawan yang ditandai reduction candidate tidak otomatis ter-uncheck.
+- Toggle **"Show Salary Data"** di header — menyembunyikan semua data finansial sensitif secara default: kolom gaji di tabel utama, KPI berbasis gaji (Total Monthly Payroll, Cost per Revenue), **seluruh Cost Breakdown Panel**, dan **seluruh Payroll Simulation Tool**. Baru muncul setelah toggle diklik manual.
 
-## ⚠️ Catatan soal Data Gaji
+## ⚠️ Catatan soal Data Gaji & Biaya
 
-`salary_monthly_usd` adalah data sensitif. Dashboard ini di-deploy ke **GitHub Pages publik**, sehingga siapapun yang punya link bisa membuka dashboard-nya. Toggle "Show Salary Data" hanya menyembunyikan data secara default di UI — **ini bukan proteksi keamanan sungguhan**, karena data tetap ikut terkirim ke browser di dalam bundle JS (siapapun yang buka DevTools tetap bisa melihatnya).
+`salary_monthly_usd`, data rent kantor, dan quote FLC adalah data finansial sensitif. Dashboard ini di-deploy ke **GitHub Pages publik**, sehingga siapapun yang punya link bisa membuka dashboard-nya. Toggle "Show Salary Data" hanya menyembunyikan data secara default di UI — **ini bukan proteksi keamanan sungguhan**, karena data tetap ikut terkirim ke browser di dalam bundle JS (siapapun yang buka DevTools tetap bisa melihatnya).
 
-Kalau data gaji asli nanti perlu benar-benar dirahasiakan dari publik:
-- Pisahkan dashboard gaji dari demo publik ini, atau
-- Pakai backend/API dengan autentikasi untuk menyuplai data gaji, atau
+Kalau data ini nanti perlu benar-benar dirahasiakan dari publik:
+- Pisahkan dashboard gaji/cost dari demo publik ini, atau
+- Pakai backend/API dengan autentikasi untuk menyuplai data tersebut, atau
 - Deploy ke Vercel/Netlify dengan access control (password gate / login), bukan GitHub Pages biasa yang selalu publik, atau
 - Jadikan repo private + hosting dengan kontrol akses.
 
 Untuk demo dummy data ini, toggle sederhana sudah cukup sesuai kebutuhan (mencegah ekspos otomatis saat link dibagikan).
+
+### ⚠️ Data operational cost masih perlu konfirmasi
+
+Di `src/data/operational-cost.json`, `office.current.monthly_rent_usd` bernilai **150000 USD untuk kantor 75 m²** — angka ini kemungkinan typo (mungkin maksudnya RUB, atau angka tahunan bukan bulanan). Dashboard sudah menampilkan warning kuning soal ini di panel "A. Office Rent", tapi **jangan dipakai untuk keputusan apapun sebelum dikonfirmasi ke Acting CEO**. `hr_outsourcing.flc_estimated_monthly_cost_usd` juga masih `null` — isi setelah dapat quote dari vendor FLC (atau isi langsung lewat input field di panel "C. HR Outsourcing" pada dashboard).
 
 ## Run Lokal
 
@@ -64,4 +70,7 @@ Path dasar (`base`) di `vite.config.js` di-set ke `/coffee-branch/` supaya asset
 
 ## Update Data
 
-Ganti isi `src/data/employees.json` dengan data asli (schema kolom sudah sama, jadi tidak perlu ubah komponen). Setelah commit & push ke `main`, dashboard otomatis redeploy dengan data baru.
+- Ganti isi `src/data/employees.json` dengan data asli (schema kolom sudah sama, jadi tidak perlu ubah komponen).
+- Ganti isi `src/data/operational-cost.json` untuk data rent kantor & HR outsourcing (lihat catatan konfirmasi di atas).
+
+Setelah commit & push ke `main`, dashboard otomatis redeploy dengan data baru.
