@@ -127,14 +127,14 @@ export default function EmployeeTable({ employees, showSalary }) {
   }
 
   return (
-    <section className="rounded-xl bg-white shadow-sm ring-1 ring-slate-200 overflow-hidden">
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-slate-100">
-        <h3 className="text-sm font-semibold text-slate-700">All Employees ({sorted.length})</h3>
+    <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 overflow-hidden">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-slate-100 dark:border-slate-700">
+        <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200">All Employees ({sorted.length})</h3>
         <div className="flex flex-wrap gap-2">
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="rounded-md border border-slate-200 text-sm px-2 py-1 text-slate-600 outline-none focus:ring-2 focus:ring-indigo-400"
+            className="rounded-md border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm px-2 py-1 text-slate-600 dark:text-slate-300 outline-none focus:ring-2 focus:ring-indigo-400"
           >
             <option value="All">All Statuses</option>
             {STATUS_OPTIONS.map((s) => (
@@ -146,7 +146,7 @@ export default function EmployeeTable({ employees, showSalary }) {
           <select
             value={employmentTypeFilter}
             onChange={(e) => setEmploymentTypeFilter(e.target.value)}
-            className="rounded-md border border-slate-200 text-sm px-2 py-1 text-slate-600 outline-none focus:ring-2 focus:ring-indigo-400"
+            className="rounded-md border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm px-2 py-1 text-slate-600 dark:text-slate-300 outline-none focus:ring-2 focus:ring-indigo-400"
           >
             <option value="All">All Employment Types</option>
             {EMPLOYMENT_TYPES.map((t) => (
@@ -158,7 +158,7 @@ export default function EmployeeTable({ employees, showSalary }) {
           <select
             value={workModeFilter}
             onChange={(e) => setWorkModeFilter(e.target.value)}
-            className="rounded-md border border-slate-200 text-sm px-2 py-1 text-slate-600 outline-none focus:ring-2 focus:ring-indigo-400"
+            className="rounded-md border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm px-2 py-1 text-slate-600 dark:text-slate-300 outline-none focus:ring-2 focus:ring-indigo-400"
           >
             <option value="All">All Work Modes</option>
             {WORK_MODES.map((m) => (
@@ -172,13 +172,13 @@ export default function EmployeeTable({ employees, showSalary }) {
 
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm">
-          <thead className="bg-slate-50 text-slate-500">
+          <thead className="bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400">
             <tr>
               {columns.map((col) => (
                 <th
                   key={col.key}
                   onClick={() => toggleSort(col.key)}
-                  className="px-3 py-2 text-left font-medium whitespace-nowrap cursor-pointer select-none hover:text-indigo-600"
+                  className="px-3 py-2 text-left font-medium whitespace-nowrap cursor-pointer select-none hover:text-indigo-600 dark:hover:text-indigo-400"
                 >
                   {col.label}
                   {sort.key === col.key && (
@@ -188,16 +188,16 @@ export default function EmployeeTable({ employees, showSalary }) {
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
             {sorted.map((employee) => (
               <tr
                 key={employee.employee_id}
-                className={`hover:bg-slate-50 ${
-                  isReductionCandidate(employee) ? 'border-l-2 border-l-rose-400 bg-rose-50/40' : ''
+                className={`hover:bg-slate-50 dark:hover:bg-slate-700/50 ${
+                  isReductionCandidate(employee) ? 'border-l-2 border-l-rose-400 bg-rose-50/40 dark:bg-rose-950/30' : ''
                 }`}
               >
                 {columns.map((col) => (
-                  <td key={col.key} className="px-3 py-2 whitespace-nowrap text-slate-700">
+                  <td key={col.key} className="px-3 py-2 whitespace-nowrap text-slate-700 dark:text-slate-300">
                     {renderCell(col.key, employee)}
                   </td>
                 ))}
@@ -213,7 +213,7 @@ export default function EmployeeTable({ employees, showSalary }) {
           </tbody>
         </table>
       </div>
-      <p className="px-4 py-2 text-xs text-slate-400 border-t border-slate-100">
+      <p className="px-4 py-2 text-xs text-slate-400 dark:text-slate-500 border-t border-slate-100 dark:border-slate-700">
         ⚠️ next to a name = reduction candidate (performance score below 3.0, or achievement below 80%).
       </p>
     </section>

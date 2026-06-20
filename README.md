@@ -18,6 +18,8 @@ Demo dashboard untuk monitoring performance karyawan vs target di branch distrib
 - **Cost Breakdown Panel**: ringkasan Total Monthly Operational Cost (rent + payroll) dengan breakdown persentase, plus 4 sub-panel — Office Rent (current vs proposed, input editable + potential saving real-time), Payroll by Department (chart), HR Outsourcing Internal vs FLC (input quote editable + saving real-time), Work Mode Distribution (chart).
 - **Payroll Simulation Tool**: tabel karyawan dengan checkbox (default semua tercentang), uncheck = disimulasikan sebagai pengurangan. Footer sticky menampilkan Total Payroll Saat Ini, Setelah Simulasi, Saving/Bulan, Saving/Tahun. Ada tombol filter cepat "Show Reduction Candidates Only". Keputusan reduksi tetap manual — karyawan yang ditandai reduction candidate tidak otomatis ter-uncheck.
 - Toggle **"Show Salary Data"** di header — menyembunyikan semua data finansial sensitif secara default: kolom gaji di tabel utama, KPI berbasis gaji (Total Monthly Payroll, Cost per Revenue), **seluruh Cost Breakdown Panel**, dan **seluruh Payroll Simulation Tool**. Baru muncul setelah toggle diklik manual.
+- Toggle **dark mode** (🌙/☀️) di header — preferensinya disimpan di `localStorage` browser, jadi tetap kepilih lagi kalau Acting CEO buka ulang link-nya nanti.
+- Semua teks di UI dalam **Bahasa Inggris** (README tetap Bahasa Indonesia karena ini dokumentasi untuk tim dev, bukan yang dilihat Acting CEO).
 
 ## ⚠️ Catatan soal Data Gaji & Biaya
 

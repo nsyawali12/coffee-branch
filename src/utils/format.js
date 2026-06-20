@@ -54,3 +54,17 @@ export function employmentTypeBadgeClass(type) {
     ? 'bg-violet-100 text-violet-700 ring-1 ring-inset ring-violet-600/20'
     : 'bg-slate-100 text-slate-600 ring-1 ring-inset ring-slate-400/20'
 }
+
+export function chartAxisColor(darkMode) {
+  return darkMode ? '#94a3b8' : '#64748b'
+}
+
+export function chartGridColor(darkMode) {
+  return darkMode ? '#334155' : '#e2e8f0'
+}
+
+export function chartTooltipStyle(darkMode) {
+  return darkMode
+    ? { backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: 8, color: '#e2e8f0' }
+    : { backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 8, color: '#334155' }
+}

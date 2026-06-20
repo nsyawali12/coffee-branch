@@ -9,15 +9,17 @@ export default function Header({
   setDateTo,
   showSalary,
   setShowSalary,
+  darkMode,
+  setDarkMode,
 }) {
   return (
-    <header className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-600 text-white">
+    <header className="bg-gradient-to-r from-indigo-800 via-indigo-700 to-violet-700 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs uppercase tracking-wider text-indigo-200">Kapal Api &middot; Russia Branch</p>
             <h1 className="text-xl sm:text-2xl font-semibold">Employee Performance Dashboard</h1>
-            <p className="text-sm text-indigo-200 mt-0.5">Demo view — dummy data, monitoring karyawan vs target</p>
+            <p className="text-sm text-indigo-200 mt-0.5">Demo view — dummy data, monitoring employee performance vs target</p>
           </div>
 
           <div className="flex flex-wrap items-end gap-3">
@@ -67,6 +69,15 @@ export default function Header({
               }`}
             >
               {showSalary ? '🔓 Hide Salary Data' : '🔒 Show Salary Data'}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setDarkMode((v) => !v)}
+              aria-label="Toggle dark mode"
+              className="rounded-md text-sm px-3 py-1.5 font-medium bg-white/15 text-white hover:bg-white/25 ring-1 ring-inset ring-white/30 transition-colors"
+            >
+              {darkMode ? '☀️ Light' : '🌙 Dark'}
             </button>
           </div>
         </div>
