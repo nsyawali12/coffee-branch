@@ -22,13 +22,13 @@ export default function Header({
             <p className="text-sm text-indigo-200 mt-0.5">Demo view — dummy data, monitoring employee performance vs target</p>
           </div>
 
-          <div className="flex flex-wrap items-end gap-3">
-            <div className="flex flex-col">
+          <div className="grid grid-cols-2 gap-2 w-full sm:flex sm:flex-wrap sm:items-end sm:gap-3 sm:w-auto">
+            <div className="flex flex-col col-span-2 sm:col-auto">
               <label className="text-[11px] text-indigo-200 mb-1">Department</label>
               <select
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
-                className="rounded-md bg-white/95 text-slate-700 text-sm px-3 py-1.5 outline-none focus:ring-2 focus:ring-white/60"
+                className="w-full sm:w-auto rounded-md bg-white/95 text-slate-700 text-sm px-3 py-1.5 outline-none focus:ring-2 focus:ring-white/60"
               >
                 <option value="All">All Departments</option>
                 {DEPARTMENTS.map((d) => (
@@ -45,7 +45,7 @@ export default function Header({
                 type="date"
                 value={dateFrom}
                 onChange={(e) => setDateFrom(e.target.value)}
-                className="rounded-md bg-white/95 text-slate-700 text-sm px-3 py-1.5 outline-none focus:ring-2 focus:ring-white/60"
+                className="w-full sm:w-auto rounded-md bg-white/95 text-slate-700 text-sm px-3 py-1.5 outline-none focus:ring-2 focus:ring-white/60"
               />
             </div>
 
@@ -55,14 +55,14 @@ export default function Header({
                 type="date"
                 value={dateTo}
                 onChange={(e) => setDateTo(e.target.value)}
-                className="rounded-md bg-white/95 text-slate-700 text-sm px-3 py-1.5 outline-none focus:ring-2 focus:ring-white/60"
+                className="w-full sm:w-auto rounded-md bg-white/95 text-slate-700 text-sm px-3 py-1.5 outline-none focus:ring-2 focus:ring-white/60"
               />
             </div>
 
             <button
               type="button"
               onClick={() => setShowSalary((v) => !v)}
-              className={`rounded-md text-sm px-3 py-1.5 font-medium transition-colors ${
+              className={`w-full sm:w-auto rounded-md text-sm px-3 py-1.5 font-medium transition-colors ${
                 showSalary
                   ? 'bg-amber-400 text-amber-950 hover:bg-amber-300'
                   : 'bg-white/15 text-white hover:bg-white/25 ring-1 ring-inset ring-white/30'
@@ -75,7 +75,7 @@ export default function Header({
               type="button"
               onClick={() => setDarkMode((v) => !v)}
               aria-label="Toggle dark mode"
-              className="rounded-md text-sm px-3 py-1.5 font-medium bg-white/15 text-white hover:bg-white/25 ring-1 ring-inset ring-white/30 transition-colors"
+              className="w-full sm:w-auto rounded-md text-sm px-3 py-1.5 font-medium bg-white/15 text-white hover:bg-white/25 ring-1 ring-inset ring-white/30 transition-colors"
             >
               {darkMode ? '☀️ Light' : '🌙 Dark'}
             </button>

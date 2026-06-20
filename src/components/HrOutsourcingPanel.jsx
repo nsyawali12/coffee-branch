@@ -31,7 +31,7 @@ export default function HrOutsourcingPanel({ hrOutsourcing, flcQuote, setFlcQuot
       </div>
 
       <div
-        className={`rounded-md px-3 py-2 flex items-center justify-between ring-1 ${
+        className={`rounded-md px-3 py-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between ring-1 ${
           saving === null
             ? 'bg-slate-50 dark:bg-slate-700/50 ring-slate-200 dark:ring-slate-600'
             : saving >= 0

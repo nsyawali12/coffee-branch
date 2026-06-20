@@ -47,7 +47,7 @@ export default function OfficeCostPanel({ office, currentRent, setCurrentRent, p
         </div>
       </div>
 
-      <div className="rounded-md bg-emerald-50 dark:bg-emerald-950/30 ring-1 ring-emerald-200 dark:ring-emerald-800 px-3 py-2 flex items-center justify-between">
+      <div className="rounded-md bg-emerald-50 dark:bg-emerald-950/30 ring-1 ring-emerald-200 dark:ring-emerald-800 px-3 py-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-sm text-emerald-700 dark:text-emerald-300 font-medium">Potential Monthly Saving</span>
         <span className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">
           {saving === null ? 'enter proposed rent' : formatUSD(saving)}
