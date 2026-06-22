@@ -16,10 +16,10 @@ export default function ReviewCandidatesTable({ data }) {
     <section className="rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 overflow-hidden">
       <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-700">
         <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-          Review Candidates ({candidates.length}) — ranked by cut-off priority
+          Review Candidates ({candidates.length}) — priority order for management review
         </h3>
         <p className="text-xs text-slate-400">
-          Internal employees below 50% of average revenue, ranked by longest apparent tenure with the fewest
+          Internal employees below 50% of average revenue, ordered by longest apparent tenure with the fewest
           months of sales first (ties broken by lowest revenue)
         </p>
       </div>
