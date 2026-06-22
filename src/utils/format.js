@@ -50,9 +50,14 @@ export const WORK_MODE_COLORS = {
 }
 
 export function employmentTypeBadgeClass(type) {
-  return type === 'FLC'
+  return type !== 'Internal'
     ? 'bg-violet-100 text-violet-700 ring-1 ring-inset ring-violet-600/20'
     : 'bg-slate-100 text-slate-600 ring-1 ring-inset ring-slate-400/20'
+}
+
+export function formatRUB(value) {
+  if (value === null || value === undefined || Number.isNaN(value)) return '—'
+  return `₽ ${new Intl.NumberFormat('en-US').format(Math.round(value))}`
 }
 
 export function chartAxisColor(darkMode) {
